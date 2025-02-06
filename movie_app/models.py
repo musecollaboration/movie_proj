@@ -11,4 +11,6 @@ class Movie(models.Model):
         return f'{self.name} - {self.rating}%'
 
 
+# python manage.py shell_plus --print-sql
 # from movie_app.models import Movie
+# from django.db.models import Q   (& или , - AND), (| - OR), (~Q - NOT)
