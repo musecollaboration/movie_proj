@@ -5,10 +5,20 @@ from transliterate import translit
 
 
 class Movie(models.Model):
+    EURO = 'EUR'
+    USD = 'USD'
+    RUB = 'RUB'
+    CURRENCY_CHOICES = [
+        (EURO, 'Euro'),
+        (USD, 'Dollar'),
+        (RUB, 'Rubles'),
+    ]
+
     name = models.CharField(max_length=40)
     rating = models.IntegerField()
-    years = models.IntegerField(null=True)
+    years = models.IntegerField(null=True, blank=True)
     budget = models.IntegerField(default=1000000)
+    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, default=RUB)
     slug = models.SlugField(default='', null=False, db_index=True)
 
     def save(self, *args, **kwargs):
