@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.db.models import F, Sum, Max, Min, Count, Avg, Value
-from .models import Movie
+from .models import Movie, Actor
 
 
 def show_all_movie(request):
@@ -27,3 +27,13 @@ def show_one_movie(request, slug_movie: str):
     return render(request, 'movie_app/one_movie.html', context={
         'movie': movie}
     )
+
+
+def show_all_actors(request):
+    actors = Actor.objects.all()
+    return render(request, 'movie_app/all_actors.html', context={'actors': actors})
+
+
+def show_one_actor(request, id_actor):
+    actor = get_object_or_404(Actor, id=id_actor)
+    return render(request, 'movie_app/one_actor.html', context={'actor': actor})
