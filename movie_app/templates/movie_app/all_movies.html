@@ -13,8 +13,12 @@
       </li>
     {% endfor %}
   </ul>
+  <hr />
   <h3>Средний бюджет {{ agg.budget__avg }}</h3>
   <h3>Минимальный рейтинг {{ agg.rating__min }}</h3>
   <h3>Максимальный рейтинг {{ agg.rating__max }}</h3>
   <h3>Всего фильмов {{ total_count }}</h3>
+  <hr />
+  <h3><a href="{% url 'directors' %}">Список режиссеров</a></h3>
+  <h3><a href="{% url 'actors' %}">Список актеров</a></h3>
 {% endblock %}
