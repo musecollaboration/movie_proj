@@ -3,9 +3,9 @@ from . import views
 
 urlpatterns = [
     path('', views.show_all_movie),
-    path('actors/', views.show_all_actors, name='actors'),
-    path('actors/<int:id_actor>', views.show_one_actor, name='url_actors'),
-    path('directors/', views.show_all_directors, name='directors'),
-    path('directors/<int:id_director>', views.show_one_director, name='url_directors'),
+    path('actors/', views.ShowAllActors.as_view(), name='actors'),
+    path('actors/<int:pk>', views.ShowOneActor.as_view(), name='url_actors'),
+    path('directors/', views.ShowAllDirectors.as_view(), name='directors'),
+    path('directors/<int:pk>', views.ShowOneDirector.as_view(), name='url_directors'),
     path('movie/<slug:slug_movie>', views.show_one_movie, name='url_name'),
 ]
